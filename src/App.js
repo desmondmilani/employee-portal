@@ -5,7 +5,8 @@ import { collection, getDocs, addDoc, deleteDoc, doc, updateDoc } from "firebase
 
 import AddEmployee from './components/addEmployee';
 import EmployeeList from './components/EmployeeList';
-import { async } from '@firebase/util';
+import Modal from "./components/Modal";
+import Employee from './scripts/script';
 
 function App() {
   const [users, setUsers] = useState([]);
@@ -14,6 +15,17 @@ function App() {
   const [name, setName] = useState("");
   const [lastname, setLastname] = useState("");
   const [email, setEmail] = useState("");
+
+  //lot of hooks
+  const [name1, setName1] = useState("");
+  const [lastname1, setLastname1] = useState("");
+  const [email1, setEmail1] = useState("");
+
+  //hooks for modal
+  const [modalState, setModalState] = useState("none");
+
+  //employee hook
+  const [employee, setEmployee] = useState({});
 
   useEffect(() => {
     getUsers();
@@ -40,15 +52,38 @@ function App() {
     await updateDoc(employee, empData).then(getUsers());
   }
 
+  //functions for modal
+  const toggleModal = () => {
+    if(modalState === "none") {
+      setModalState("grid");
+    } else {
+      setModalState("none");
+    }
+  }
+
+  //function to set employee
+  const captureEmployee = (id, name, lastname, email) => {
+    let emp = new Employee(id, name, lastname, email);
+    setEmployee(emp);
+    setName1(name);
+    setLastname1(lastname);
+    setEmail1(email)
+    toggleModal();
+  }
+
+  
+
 
 
   return (
     <div className="App">
       <div className='container'>
         <AddEmployee addUser={addEmployee} name={name} setName={setName} lastname={lastname} setLastname={setLastname} email={email} setEmail={setEmail} />
-        <EmployeeList users ={users} deleteEmp = {deleleEmployee} updateEmp ={updateEmployee} name={name} lastname={lastname} email={email} />
+        <EmployeeList users ={users} deleteEmp = {deleleEmployee} captureEmployee ={captureEmployee} name={name} lastname={lastname} email={email} />
       </div>
-      
+      <Modal modalState={modalState} employee={employee} setEmployee={setEmployee} updateEmployee={updateEmployee} toggleModal={toggleModal}
+        name1={name1} setName1={setName1} lastname1={lastname1} setLastname1={setLastname1} email1={email1} setEmail1={setEmail1}
+      />
     </div>
   );
 }

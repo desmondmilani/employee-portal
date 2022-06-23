@@ -1,0 +1,47 @@
+.modal-container {
+    width: 100vw;
+    height: 100vh;
+    position: absolute;
+    top: 0;
+    left: 0;
+    background: rgba(0, 0, 0, 0.6);
+    display: grid;
+    align-items: center;
+    justify-content: center;
+}
+
+.modal {
+    padding: 40px;
+    border: 2px solid black;
+    display: grid;
+    grid-template-columns: 1fr;
+    background: rgba(0, 0, 0, 0.7);
+}
+
+.modal-div {
+    display: grid;
+    grid-template-columns: 1fr;
+}
+
+button {
+    padding: 10px;
+}
+
+input {
+    padding: 10px;
+    margin-bottom: 20px;
+}
+
+.modal h1 {
+    color:aliceblue;
+    margin-bottom: 10px;
+}
+
+.modal label {
+    color: aliceblue;
+}
+
+.btn-group-modal {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+}

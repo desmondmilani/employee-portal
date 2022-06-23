@@ -1,8 +1,13 @@
 import React from "react";
+import "./EmpList.css";
+import editIcon from "../Images/edit-pngrepo-com.png";
+import trashIcon from "../Images/trashcan.png";
 
-const EmployeeList = ({ users, deleteEmp, updateEmp, name, lastname, email }) => {
+const EmployeeList = ({ users, deleteEmp, captureEmployee, name, lastname, email }) => {
+
+    
     return (
-        <div>
+        <div className="EmpList">
             <h1>Employee List</h1>
             <table>
                 <thead>
@@ -22,9 +27,9 @@ const EmployeeList = ({ users, deleteEmp, updateEmp, name, lastname, email }) =>
                                 <td>{user.name}</td>
                                 <td>{user.lastname}</td>
                                 <td>{user.email}</td>
-                                <td>
-                                    <button onClick={()=> updateEmp(user.id, {name:name, lastname:lastname, email:email})}>Edit</button>
-                                    <button onClick={()=> deleteEmp(user.id)}>Delete</button>
+                                <td className="btn-group">
+                                    <button onClick={()=> captureEmployee(user.id, user.name, user.lastname, user.email)}><img src={editIcon} alt="edit icon" /></button>
+                                    <button onClick={()=> deleteEmp(user.id)}><img src={trashIcon} alt="Delete Icon" /></button>
                                 </td>
                             </tr>
                         )

@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React from "react";
 import "./AddEmp.css";
 
 const AddEmployee = ({addUser, name, setName, lastname, setLastname, email, setEmail}) => {

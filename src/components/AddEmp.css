@@ -1,6 +1,7 @@
 .AddEmp {
     display: grid;
     grid-template-rows: repeat(5, 1fr);
+    height: 300px;
 }
 
 .AddEmp div {

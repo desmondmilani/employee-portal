@@ -1,0 +1,43 @@
+.EmpList {
+    height: 400px;
+    overflow-y: scroll;
+}
+
+table {
+    border: 2px solid black;
+}
+
+thead {
+    background: rgba(0,0,0, 0.4);
+    color: white;
+    font-weight: bolder;
+}
+
+tr:nth-child(odd) {
+    background-color: rgba(0,0,0, 0.2);
+}
+
+tr:hover {
+    background-color: rgba(0,0,0, 1.0);
+    color: white;
+}
+
+td {
+    width: 180px;
+    padding: 10px;
+    border: 2px solid black;
+}
+
+.btn-group {
+    display: grid;
+   grid-template-columns: repeat(2, 1fr);
+}
+
+.btn-group button {
+    padding: 5px;
+}
+
+img {
+    width: 25px;
+    height: 25px;
+}
